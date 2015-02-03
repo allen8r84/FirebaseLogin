@@ -30,6 +30,7 @@ app.service('authService', function(){
     }, loginCallback);
   };
 
+  //Step 3 of Registration
   this.register = function(user, cb){
     firebaseLogin.createUser({
       email: user.email,

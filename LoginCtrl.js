@@ -1,6 +1,7 @@
 var app = angular.module('firebaseLogin');
 
 app.controller('LoginCtrl', function ($scope, authService, $location) {
+  //Step 4 of Registration
   var loginCallback = function(user){
     user.uid = user.uid.replace('simplelogin:', '');
     $scope.$apply(function(){
@@ -12,6 +13,7 @@ app.controller('LoginCtrl', function ($scope, authService, $location) {
     return authService.login($scope.details, loginCallback);
   };
 
+  //Step 2 of Registration
   $scope.register = function () {
     return authService.register($scope.details, loginCallback);
   };
