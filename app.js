@@ -11,10 +11,10 @@ $routeProvider
     templateUrl: 'dashboard.html',
     controller: 'DashboardCtrl',
     resolve: {
-      userReference: function(firebaseService, $route){
+      user: function(firebaseService, $route){
         return firebaseService.getUser($route.current.params.userId);
       },
-      thingsReference: function(firebaseService, $route){
+      things: function(firebaseService, $route){
         return firebaseService.getThings($route.current.params.userId);
       }
     }

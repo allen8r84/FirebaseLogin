@@ -1,13 +1,13 @@
 var app = angular.module('firebaseLogin');
 
-app.service('firebaseService', function ($firebase, envService) {
+app.service('firebaseService', function (envService, $firebaseArray, $firebaseObject) {
   var firebaseUrl = envService.getEnv().firebase;
-
+   
   this.getUser = function(userId){
-    return $firebase(new Firebase(firebaseUrl + 'users/' + userId)).$asObject();
+    return $firebaseObject(new Firebase(firebaseUrl + '/users/' + userId));
   };
 
   this.getThings = function(userId){
-    return $firebase(new Firebase(firebaseUrl + 'users/' + userId + '/things')).$asArray();
+    return $firebaseArray(new Firebase(firebaseUrl + '/users/' + userId + '/things'));
   }
-})
+});
