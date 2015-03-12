@@ -1,8 +1,8 @@
 var app = angular.module('firebaseLogin');
 
-app.service('authService', function(){
+app.service('authService', function(envService){
   //Just a reference to the firebase endpoint
-  var firebaseUrl = 'https://practice-auth.firebaseio.com/'
+  var firebaseUrl = envService.getEnv().firebase;
   //Creates an object using the Firebase Constructor with our endpoint passed in
   var firebaseLogin = new Firebase(firebaseUrl);
 

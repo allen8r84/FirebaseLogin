@@ -1,6 +1,8 @@
 var app = angular.module('firebaseLogin');
 
-app.controller('LoginCtrl', function ($scope, authService, $location) {
+app.controller('LoginCtrl', function ($scope, authService, $location, envService) {
+  $scope.env = envService.getEnv();
+  
   //Step 4 of Registration
   var loginCallback = function(user){
     user.uid = user.uid.replace('simplelogin:', '');
